@@ -36,6 +36,8 @@
 {% set content %}
   <div class="tableview tablepane">
     <table class="data fullwidth">
+      <thead>
+
       <tr>
         <td>
           First Name
@@ -47,7 +49,7 @@
           Email
         </td>
         <td>
-         Available Points
+          Available Points
         </td>
         <td>
           Redeemed Points
@@ -55,7 +57,10 @@
         <td>
           Expired Points
         </td>
+        <td></td>
       </tr>
+      </thead>
+
       {% for user in craft.craftRewards.getAllPoints %}
       <tr>
         <td>
