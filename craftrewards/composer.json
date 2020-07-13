@@ -1,0 +1,49 @@
+{
+    "name": "ron/craft-rewards",
+    "description": "Craft Commerce loyalty plugin",
+    "type": "craft-plugin",
+    "version": "1",
+    "keywords": [
+        "craft",
+        "cms",
+        "craftcms",
+        "craft-plugin",
+        "craft rewards"
+    ],
+    "support": {
+        "docs": "???",
+        "issues": "???"
+    },
+    "license": "MIT",
+    "authors": [
+        {
+            "name": "ron.agapito",
+            "homepage": "ron.agapito@icloud.com"
+        }
+    ],
+    "require": {
+        "craftcms/cms": "^3.0.0"
+    },
+    "require-dev": {
+      "craftcms/cms": "^3.2.0",
+      "codeception/codeception": "^3.0",
+      "vlucas/phpdotenv": "^3.0"
+    },
+    "autoload": {
+        "psr-4": {
+          "ron\\craftrewards\\": "src/"
+        }
+    },
+    "extra": {
+        "name": "Craft Rewards",
+        "handle": "craft-rewards",
+        "developer": "ron.agapito",
+        "developerUrl": "ron.agapito@icloud.com",
+        "documentationUrl": "???",
+        "changelogUrl": "???",
+        "components": {
+            "craftRewardsService": "ron\\craftrewards\\services\\CraftRewardsService"
+        },
+        "class": "ron\\craftrewards\\CraftRewards"
+    }
+}

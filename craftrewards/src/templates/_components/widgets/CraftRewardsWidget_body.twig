@@ -1,0 +1,20 @@
+{# @var craft \craft\web\twig\variables\CraftVariable #}
+{#
+/**
+ * Craft Rewards plugin for Craft CMS
+ *
+ * CraftRewardsWidget Widget Body
+ *
+ * @author    ron.agapito
+ * @copyright Copyright (c) 2020 ron.agapito
+ * @link      ron.agapito@icloud.com
+ * @package   CraftRewards
+ * @since     1
+ */
+#}
+
+{% set iconUrl = view.getAssetManager().getPublishedUrl('@ron/craftrewards/assetbundles/craftrewardswidgetwidget/dist', true) ~ '/img/CraftRewardsWidget-icon.svg' %}
+
+<img src="{{ iconUrl }}" height="64" width="64" />
+
+<p>{{ message }}</p>

@@ -1,0 +1,30 @@
+{# @var craft \craft\web\twig\variables\CraftVariable #}
+{#
+/**
+ * Craft Rewards plugin for Craft CMS 3.x
+ *
+ * Craft Rewards Settings.twig
+ *
+ * @author    ron.agapito
+ * @copyright Copyright (c) 2020 ron.agapito
+ * @link      ron.agapito@icloud.com
+ * @package   CraftRewards
+ * @since     1
+ */
+
+ {% import "_includes/forms" as forms %}
+
+{% do view.registerAssetBundle("ron\\craftrewards\\assetbundles\\craftrewards\\CraftRewardsAsset") %}
+
+{{ forms.textField({
+    label: 'Some Field',
+    instructions: 'Enter some setting here.',
+    id: 'someAttribute',
+    name: 'someAttribute',
+    value: settings['someAttribute']})
+}}
+
+
+#}
+
+<i>Settings will be added in here</i>
