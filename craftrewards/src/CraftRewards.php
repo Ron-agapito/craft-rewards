@@ -86,10 +86,13 @@ class CraftRewards extends Plugin
         $this->setComponents([
             'service' => CraftRewardsServiceService::class,
         ]);
-        $this->_registerTemplateHooks();
+
+
         self::$plugin = $this;
+
+        $this->_registerTemplateHooks();
         $uid = Craft::$app->getUser()->getId();
-        if ($uid)
+        if ($uid && Craft::$app->plugins->isPluginInstalled('craft-rewards'))
             self::$currentPoints = $this->service->getUserPoints($uid);
 
         if (self::$currentPoints > 0) {
