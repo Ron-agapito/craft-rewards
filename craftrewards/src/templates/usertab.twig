@@ -47,9 +47,9 @@
                     {{user.points_expired}}
                 </td>
                 <td>
-                    <button type="button" data-points="{{user.points}}" data-id="{{user.id}}" class="btn btn-success btnPoints" data-toggle="modal" data-target="#myModal">Add Points</button>
+                    <button type="button" data-points="{{user.points}}" data-id="{{user.id}}" class="btn btn-success btnPoints" data-toggle="modal" data-target="#pointsModal">Add Points</button>
 
-                    <button type="button" data-action="remove" data-points="{{user.points}}" data-id="{{user.id}}" class="btn btn-danger btnPoints" data-toggle="modal" data-target="#myModal">Remove Points</button>
+                    <button type="button" data-action="remove" data-points="{{user.points}}" data-id="{{user.id}}" class="btn btn-danger btnPoints submit" data-toggle="modal" data-target="#pointsModal">Remove Points</button>
 
                 </td>
             </tr>
@@ -58,82 +58,40 @@
 
 
 
-    <!-- The Modal -->
-    <div class="modal fade" id="myModal">
-        <div class="modal-dialog">
-            <div class="modal-content">
+<div id="pointsModal" class="modal" style="display:none"> <!-- modal body -->
+    <div id="modal" class="body"> <!-- modal-content -->
+        <header class="header">
+            <h2>Adjust Points</h2>
+        </header>
 
-                <!-- Modal Header -->
-                <div class="modal-header">
-                    <h4 class="modal-title">Adjust Points</h4>
-                    <button type="button" class="close" data-dismiss="modal">&times;</button>
-                </div>
-
-                <!-- Modal body -->
-                <div class="modal-body">
-                    <form action="" method="POST">
-                        {{ csrfInput() }}
-                        <input type="hidden" name="action" value="craft-rewards/default/add-points">
-                        <input type="hidden" name="customerId" id="customerId" value="">
-                        <input type="hidden" name="type" id="type" value="">
+        <form action="" method="POST">
+            {{ csrfInput() }}
+            <input type="hidden" name="action" value="craft-rewards/default/add-points">
+            <input type="hidden" name="customerId" id="customerId" value="">
+            <input type="hidden" name="type" id="type" value="">
 
 
 
 
-                        <div class="form-group">
-                            <label>Current Points           <span class="badge badge-success pointsOnModal"></span>
+            <div class="flex">
+                <label>Current Points           <span class="badge badge-success pointsOnModal"></span>
 
-                        </div>
-                        <div class="form-group">
-                            </label>
+                </label>
+            </div>
+            <div class="input">
+                <label for="pwd" >Points</label>
+                <input type="number" class="text fullwidth"  name="points" id="points" onkeyup="this.value=this.value.replace(/[^\d]/,'')">
+            </div>
 
-                            <label for="pwd" >Points</label>
-                            <input type="number" class="form-control"  name="points" id="points" onkeyup="this.value=this.value.replace(/[^\d]/,'')">
-                        </div>
-                        <div class="form-group">
-                            <button type="submit" class="btn btn-success" >Save</button>
+            <div class="flex" style="padding-top: 15px;">
 
-                        </div>
-                    </form>
+                <button type="button" class="btn btn-success close" >Cancel</button>
 
-                </div>
-
-                <!-- Modal footer -->
-                <div class="modal-footer">
-                    <button type="button" class="btn btn-danger" data-dismiss="modal">Close</button>
-                </div>
+                <button type="submit" class="btn btn-success" >Save</button>
 
             </div>
-        </div>
+
+        </form>
+
     </div>
-
-    <style>
-        .modal{
-            background: rgba(0,0,0,.3);
-        }
-    </style>
-
-    <!-- Latest compiled and minified CSS -->
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css">
-
-    <!-- jQuery library -->
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
-
-    <!-- Popper JS -->
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
-
-    <!-- Latest compiled JavaScript -->
-    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.0/js/bootstrap.min.js"></script>
-
-    <script>
-        $(".btnPoints").click(function()
-        {
-            var p = $(this).data("points");
-            var id = $(this).data("id");
-            var action = $(this).data("action");
-            $(".pointsOnModal").html(p);
-            $("#type").val( action);
-            $("#customerId").val(id);
-            $("#points").val(0)
-        });
-    </script>
+</div>
